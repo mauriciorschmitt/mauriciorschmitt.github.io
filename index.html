@@ -28,6 +28,15 @@
 
 
 <!-- =====================================================
+     FONTE
+===================================================== -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+
+
+<!-- =====================================================
      OPEN GRAPH / COMPARTILHAMENTO
 ===================================================== -->
 
@@ -35,16 +44,16 @@
 <meta property="og:site_name" content="Maurício Rodrigo Schmitt">
 <meta property="og:title" content="Maurício Rodrigo Schmitt | Professor, Pesquisador e Paleontólogo">
 <meta property="og:description" content="Professor e pesquisador na Universidade do Contestado (UNC). Paleontologia, geociências e sensoriamento remoto. Currículo, publicações e projetos.">
-<meta property="og:image" content="https://mauriciorschmitt.github.io/perfil.png">
-<meta property="og:image:width" content="300">
-<meta property="og:image:height" content="350">
+<meta property="og:image" content="https://mauriciorschmitt.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://mauriciorschmitt.github.io/">
 <meta property="og:locale" content="pt_BR">
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Maurício Rodrigo Schmitt | Professor, Pesquisador e Paleontólogo">
 <meta name="twitter:description" content="Professor e pesquisador na Universidade do Contestado (UNC). Paleontologia, geociências e sensoriamento remoto.">
-<meta name="twitter:image" content="https://mauriciorschmitt.github.io/perfil.png">
+<meta name="twitter:image" content="https://mauriciorschmitt.github.io/og-image.jpg">
 
 
 <style>
@@ -1018,55 +1027,207 @@ h1 {
 
 
 /* =====================================================
-   FOOTER
+   AÇÕES RÁPIDAS (CONTATO NO TOPO)
 ===================================================== */
 
-.footer {
+.actions {
 
-  display: grid;
+  display: flex;
 
-  grid-template-columns:
+  flex-wrap: wrap;
 
-    1fr
-    1fr
-    1fr;
+  gap: 10px;
 
+  margin-top: 22px;
+
+}
+
+
+.action {
+
+  display: inline-flex;
 
   align-items: center;
 
+  justify-content: center;
 
-  gap: 20px;
+  gap: 9px;
 
+
+  min-height: 46px;
 
   padding:
 
-    28px
-    48px;
+    12px
+    20px;
 
 
-  border-top:
+  border-radius: 14px;
+
+
+  border:
 
     1px solid
-    rgba(255, 255, 255, .08);
+    rgba(217, 164, 65, .45);
 
 
-  color: #8a8074;
+  background:
 
-  font-size: .75rem;
+    rgba(217, 164, 65, .06);
+
+
+  color: var(--text);
+
+  font-size: .88rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+
+  transition:
+
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
 
 }
 
 
-.footer-center {
+.action:hover {
 
-  text-align: center;
+  transform:
+
+    translateY(-2px);
+
+
+  border-color:
+
+    rgba(217, 164, 65, .75);
+
+
+  background:
+
+    rgba(217, 164, 65, .12);
 
 }
 
 
-.footer-right {
+.action svg {
 
-  text-align: right;
+  width: 18px;
+
+  height: 18px;
+
+  flex: none;
+
+}
+
+
+.action-primary {
+
+  border-color: var(--accent);
+
+  background: var(--accent);
+
+  color: #1a140c;
+
+}
+
+
+.action-primary:hover {
+
+  border-color: var(--accent-light);
+
+  background: var(--accent-light);
+
+}
+
+
+/* =====================================================
+   IDIOMA
+===================================================== */
+
+.lang-switch {
+
+  position: absolute;
+
+  z-index: 3;
+
+  top: 18px;
+
+  right: 20px;
+
+
+  display: flex;
+
+  padding: 3px;
+
+
+  border-radius: 999px;
+
+
+  border:
+
+    1px solid
+    rgba(217, 164, 65, .30);
+
+
+  background:
+
+    rgba(20, 17, 12, .75);
+
+}
+
+
+.lang-switch button {
+
+  min-width: 42px;
+
+  padding:
+
+    6px
+    11px;
+
+
+  border: 0;
+
+  border-radius: 999px;
+
+
+  background: transparent;
+
+  color: var(--muted);
+
+
+  font: inherit;
+
+  font-size: .72rem;
+
+  font-weight: 800;
+
+  letter-spacing: .08em;
+
+
+  cursor: pointer;
+
+}
+
+
+.lang-switch button[aria-pressed="true"] {
+
+  background: var(--accent);
+
+  color: #1a140c;
+
+}
+
+
+/* Projeto sozinho na última linha ocupa a largura toda */
+
+.project:last-child:nth-child(odd) {
+
+  grid-column: 1 / -1;
 
 }
 
@@ -1216,23 +1377,26 @@ h1 {
   }
 
 
-  .footer {
 
-    grid-template-columns: 1fr;
+  .action {
 
-    text-align: left;
-
-    padding:
-
-      24px;
+    flex: 1 1 auto;
 
   }
 
 
-  .footer-center,
-  .footer-right {
+  .action-primary {
 
-    text-align: left;
+    flex-basis: 100%;
+
+  }
+
+
+  .lang-switch {
+
+    top: 14px;
+
+    right: 14px;
 
   }
 
@@ -1266,12 +1430,24 @@ h1 {
 <header class="hero">
 
 
+  <!-- IDIOMA -->
+
+  <div class="lang-switch" role="group" aria-label="Idioma / Language">
+
+    <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+
+  </div>
+
+
+
   <!-- FOTO -->
 
   <div class="profile-area">
 
     <img
-      src="perfil.png"
+      src="perfil.jpg"
       alt="Maurício Rodrigo Schmitt"
       class="profile-photo"
     >
@@ -1285,7 +1461,7 @@ h1 {
   <div class="hero-content">
 
 
-    <div class="eyebrow">
+    <div class="eyebrow" data-i18n="eyebrow">
 
       Professor · Pesquisador · Paleontólogo
 
@@ -1318,7 +1494,52 @@ h1 {
     </div>
 
 
-    <p class="bio">
+
+    <!-- CONTATO RÁPIDO -->
+
+    <div class="actions">
+
+      <a
+        class="action action-primary"
+        href="contato.vcf"
+      >
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg>
+
+        <span data-i18n="save">Salvar contato</span>
+
+      </a>
+
+
+      <a
+        class="action"
+        href="https://wa.me/5551982010295"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20l1.3-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>
+
+        WhatsApp
+
+      </a>
+
+
+      <a
+        class="action"
+        href="mailto:mauricio.schmitt@yahoo.com.br"
+      >
+
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+
+        <span data-i18n="email">E-mail</span>
+
+      </a>
+
+    </div>
+
+
+    <p class="bio" data-i18n="bio">
 
       Pesquisador interessado em compreender o passado geológico
       e paleobiológico e em transformar ciência e conhecimento
@@ -1329,19 +1550,19 @@ h1 {
 
     <div class="hero-tags">
 
-      <span class="hero-tag">
+      <span class="hero-tag" data-i18n="tagPaleo">
         Paleontologia
       </span>
 
-      <span class="hero-tag">
+      <span class="hero-tag" data-i18n="tagGeo">
         Geociências
       </span>
 
-      <span class="hero-tag">
+      <span class="hero-tag" data-i18n="tagRemote">
         Sensoriamento remoto
       </span>
 
-      <span class="hero-tag">
+      <span class="hero-tag" data-i18n="tagEnv">
         Meio ambiente
       </span>
 
@@ -1365,7 +1586,7 @@ h1 {
 <section class="section">
 
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="research">
 
     Pesquisa &amp; trajetória acadêmica
 
@@ -1388,11 +1609,11 @@ h1 {
 
       <div class="link-info">
 
-        <b>
+        <b data-i18n="lattes">
           Currículo Lattes
         </b>
 
-        <span>
+        <span data-i18n="lattesDesc">
           Trajetória e produção científica
         </span>
 
@@ -1419,7 +1640,7 @@ h1 {
           ORCID
         </b>
 
-        <span>
+        <span data-i18n="orcidDesc">
           Identificador de pesquisador
         </span>
 
@@ -1431,7 +1652,7 @@ h1 {
 
     <a
       class="link-card"
-      href="https://scholar.google.com.br/citations?user=54kO9jkAAAAJ&hl=pt-BR"
+      href="https://scholar.google.com.br/citations?user=54kO9jkAAAAJ&amp;hl=pt-BR"
       target="_blank"
       rel="noopener"
     >
@@ -1446,7 +1667,7 @@ h1 {
           Google Scholar
         </b>
 
-        <span>
+        <span data-i18n="scholarDesc">
           Publicações e citações
         </span>
 
@@ -1473,7 +1694,7 @@ h1 {
           LinkedIn
         </b>
 
-        <span>
+        <span data-i18n="linkedinDesc">
           Perfil profissional
         </span>
 
@@ -1500,7 +1721,7 @@ h1 {
           ResearchGate
         </b>
 
-        <span>
+        <span data-i18n="rgDesc">
           Pesquisas e publicações
         </span>
 
@@ -1523,7 +1744,7 @@ h1 {
 <section class="section">
 
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="contact">
 
     Contato
 
@@ -1546,7 +1767,7 @@ h1 {
 
       <div class="link-info">
 
-        <b>
+        <b data-i18n="email">
           E-mail
         </b>
 
@@ -1663,7 +1884,7 @@ h1 {
           CENPALEO
         </b>
 
-        <span>
+        <span data-i18n="cenpaleoDesc">
           Centro de Pesquisa Paleontológica
         </span>
 
@@ -1695,7 +1916,7 @@ h1 {
           PMPECSA
         </b>
 
-        <span>
+        <span data-i18n="pmpecsaDesc">
           Programa de Mestrado Profissional em Engenharia Civil,
           Sanitária e Ambiental
         </span>
@@ -1716,7 +1937,7 @@ h1 {
     >
 
       <img
-        src="UNC 2021_alternativo.png"
+        src="unc.png"
         alt="Universidade do Contestado"
         class="institution-logo"
       >
@@ -1728,7 +1949,7 @@ h1 {
           Universidade do Contestado
         </b>
 
-        <span>
+        <span data-i18n="uncDesc">
           Ensino, pesquisa e extensão
         </span>
 
@@ -1751,7 +1972,7 @@ h1 {
 <section class="section">
 
 
-  <h2 class="section-title">
+  <h2 class="section-title" data-i18n="projects">
 
     Projetos em destaque
 
@@ -1772,7 +1993,7 @@ h1 {
 
 
       <img
-        src="represa.png"
+        src="represa.jpg"
         alt="São Lourenço Alert"
         class="project-image"
       >
@@ -1788,7 +2009,7 @@ h1 {
         </div>
 
 
-        <p>
+        <p data-i18n="slDesc">
 
           Sistema de monitoramento e alerta para mudanças
           na cobertura de macrófitas aquáticas no
@@ -1803,67 +2024,12 @@ h1 {
             Sentinel-2
           </span>
 
-          <span class="tag">
+          <span class="tag" data-i18n="tagRemote">
             Sensoriamento remoto
           </span>
 
-          <span class="tag">
+          <span class="tag" data-i18n="tagMonitoring">
             Monitoramento ambiental
-          </span>
-
-        </div>
-
-
-      </div>
-
-
-    </a>
-
-
-
-    <!-- CENPALEO -->
-
-    <a
-      class="project"
-      href="https://cenpaleo.unc.br/"
-      target="_blank"
-      rel="noopener"
-    >
-
-
-      <img
-        src="cenpaleo2.png"
-        alt="Pesquisa paleontológica"
-        class="project-image"
-      >
-
-
-      <div class="project-content">
-
-
-        <div class="project-title">
-
-          CENPALEO
-
-        </div>
-
-
-        <p>
-
-          Pesquisa, acervo, patrimônio paleontológico
-          e divulgação científica.
-
-        </p>
-
-
-        <div class="tags">
-
-          <span class="tag">
-            Paleontologia
-          </span>
-
-          <span class="tag">
-            Geociências
           </span>
 
         </div>
@@ -1887,8 +2053,8 @@ h1 {
 
 
       <img
-        src="reguaviva.png"
-        alt="Régua Viva"
+        src="rionegro.jpg"
+        alt="Rio Negro"
         class="project-image"
       >
 
@@ -1903,7 +2069,7 @@ h1 {
         </div>
 
 
-        <p>
+        <p data-i18n="rvDesc">
 
           Nível do Rio Negro agora, em Rio Negro (PR) e Mafra (SC),
           com régua, histórico e orientações em caso de enchente.
@@ -1915,15 +2081,15 @@ h1 {
 
         <div class="tags">
 
-          <span class="tag">
+          <span class="tag" data-i18n="tagRiver">
             Nível do rio
           </span>
 
-          <span class="tag">
+          <span class="tag" data-i18n="tagFlood">
             Enchentes
           </span>
 
-          <span class="tag tag-test">
+          <span class="tag tag-test" data-i18n="tagTest">
             Previsão em teste
           </span>
 
@@ -1964,7 +2130,7 @@ h1 {
         </div>
 
 
-        <p>
+        <p data-i18n="cuDesc">
 
           Calculadora de aproveitamento de água da chuva:
           quanto o telhado capta, que reservatório faz sentido
@@ -1975,7 +2141,7 @@ h1 {
 
         <div class="tags">
 
-          <span class="tag">
+          <span class="tag" data-i18n="tagRain">
             Água da chuva
           </span>
 
@@ -1998,42 +2164,137 @@ h1 {
 </section>
 
 
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="footer">
-
-
-  <div>
-
-    © 2026 Maurício Rodrigo Schmitt
-
-  </div>
-
-
-  <div class="footer-center">
-
-    Professor · Pesquisador · Paleontólogo
-
-  </div>
-
-
-  <div class="footer-right">
-
-    Cartão digital · Acesso por QR Code
-
-  </div>
-
-
-</footer>
-
-
 </article>
 
 
 </main>
+
+
+
+<!-- =====================================================
+     IDIOMA (PT / EN)
+===================================================== -->
+
+<script>
+
+(function () {
+
+  var EN = {
+
+    title: "Maurício Rodrigo Schmitt | Professional Profile",
+    description: "Maurício Rodrigo Schmitt — Professor, researcher and paleontologist. Universidade do Contestado.",
+
+    eyebrow: "Professor · Researcher · Paleontologist",
+    save: "Save contact",
+    email: "Email",
+    bio: "Researcher interested in understanding the geological and paleobiological past, and in turning science and technical knowledge into information that is accessible to society.",
+
+    tagPaleo: "Paleontology",
+    tagGeo: "Geosciences",
+    tagRemote: "Remote sensing",
+    tagEnv: "Environment",
+
+    research: "Research & academic background",
+    lattes: "Lattes CV",
+    lattesDesc: "Academic background and publications",
+    orcidDesc: "Researcher identifier",
+    scholarDesc: "Publications and citations",
+    linkedinDesc: "Professional profile",
+    rgDesc: "Research and publications",
+
+    contact: "Contact",
+
+    cenpaleoDesc: "Paleontological Research Center",
+    pmpecsaDesc: "Professional Master's Program in Civil, Sanitary and Environmental Engineering",
+    uncDesc: "Teaching, research and outreach",
+
+    projects: "Featured projects",
+    slDesc: "Monitoring and alert system for changes in aquatic macrophyte cover at the São Lourenço reservoir.",
+    tagMonitoring: "Environmental monitoring",
+    rvDesc: "Current level of the Rio Negro in Rio Negro (PR) and Mafra (SC), with gauge, history and flood guidance. The forecast for the coming days is still being tested, but river level monitoring is ready to use.",
+    tagRiver: "River level",
+    tagFlood: "Floods",
+    tagTest: "Forecast in testing",
+    cuDesc: "Rainwater harvesting calculator: how much the roof collects, which tank size makes sense and how long the system takes to pay for itself.",
+    tagRain: "Rainwater"
+
+  };
+
+
+  var nodes = document.querySelectorAll("[data-i18n]");
+
+  var meta = document.querySelector('meta[name="description"]');
+
+  var PT = {
+
+    title: document.title,
+    description: meta.content
+
+  };
+
+  nodes.forEach(function (el) {
+
+    PT[el.dataset.i18n] = el.textContent.trim().replace(/\s+/g, " ");
+
+  });
+
+
+  function setLang(lang) {
+
+    var dict = lang === "en" ? EN : PT;
+
+    nodes.forEach(function (el) {
+
+      el.textContent = dict[el.dataset.i18n];
+
+    });
+
+    document.title = dict.title;
+
+    meta.content = dict.description;
+
+    document.documentElement.lang = lang === "en" ? "en" : "pt-BR";
+
+    document.querySelectorAll(".lang-switch button").forEach(function (b) {
+
+      b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+
+    });
+
+  }
+
+
+  function saved() {
+
+    try { return localStorage.getItem("lang"); } catch (e) { return null; }
+
+  }
+
+
+  var param = new URLSearchParams(location.search).get("lang");
+
+  var browserLang = (navigator.language || "pt").toLowerCase().indexOf("pt") === 0 ? "pt" : "en";
+
+  var initial = param || saved() || browserLang;
+
+  setLang(initial === "en" ? "en" : "pt");
+
+
+  document.querySelectorAll(".lang-switch button").forEach(function (b) {
+
+    b.addEventListener("click", function () {
+
+      setLang(b.dataset.lang);
+
+      try { localStorage.setItem("lang", b.dataset.lang); } catch (e) {}
+
+    });
+
+  });
+
+})();
+
+</script>
 
 
 </body>
