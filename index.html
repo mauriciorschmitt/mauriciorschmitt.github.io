@@ -1501,6 +1501,7 @@ h1 {
 
       <a
         class="action action-primary"
+        id="save-contact"
         href="contato.vcf"
       >
 
@@ -2168,6 +2169,50 @@ h1 {
 
 
 </main>
+
+
+
+<!-- =====================================================
+     SALVAR CONTATO
+     iPhone abre o contato.vcf direto na tela de contato.
+     No Android o .vcf só baixa, então abrimos a tela
+     "novo contato" já preenchida; se não der, cai no .vcf.
+===================================================== -->
+
+<script>
+
+(function () {
+
+  if (!/Android/i.test(navigator.userAgent)) return;
+
+  var contact = {
+
+    name: "Maurício Rodrigo Schmitt",
+    phone: "+55 51 98201-0295",
+    email: "mauricio.schmitt@yahoo.com.br",
+    company: "Universidade do Contestado (UNC)",
+    job_title: "Professor, pesquisador e paleontólogo",
+    notes: "https://mauriciorschmitt.github.io/"
+
+  };
+
+  var extras = Object.keys(contact).map(function (k) {
+
+    return "S." + k + "=" + encodeURIComponent(contact[k]);
+
+  }).join(";");
+
+  var fallback = encodeURIComponent(new URL("contato.vcf", location.href).href);
+
+  document.getElementById("save-contact").href =
+
+    "intent:#Intent;action=android.intent.action.INSERT;" +
+    "type=vnd.android.cursor.dir/raw_contact;" +
+    extras + ";S.browser_fallback_url=" + fallback + ";end";
+
+})();
+
+</script>
 
 
 
